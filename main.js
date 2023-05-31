@@ -7,7 +7,7 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-let storyText = `It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. ${Bob} saw the whole thing, but was not surprised — ${xItem} weighs 300 pounds, and it was a hot day.`;
+let storyText = `It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.`;
 var insertX = ("Willy the Goblin", "Big Daddy", "Father Christmas");
 var insertY = ("the soup kitchen", "Disneyland", "the White House");
 var insertZ = ("spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away");
@@ -15,17 +15,27 @@ var insertZ = ("spontaneously combusted", "melted into a puddle on the sidewalk"
 randomize.addEventListener('click', result);
 
 function result() {
+let newStory = storyText
+  var xItem = randomValueFromArray(insertX);
+  var yItem = randomValueFromArray(insertY);
+  var zItem = randomValueFromArray(insertZ);
+
+
 
   if(customName.value !== '') {
-    const Bob = customName.value;
+    let name = customName.value;
   }
 
+  newStory = newStory.replace(':insertx:',xItem);
+  newStory = newStory.replace(':inserty:',yItem);
+  newStory = newStory.replace(':insertz:',zItem);
+
   if(document.getElementById("uk").checked) {
-    const weight = Math.round.concat(21.4286, "stone");
-    const temperature =  Math.round.concat(34.4444, "centigrade");
+    let weight = Math.round.concat(21.4286, "stone");
+    let temperature =  Math.round.concat(34.4444, "centigrade");
   } else {
-      const weight = Math.round.concat(300, "pounds");
-      const temperature = Math.round.concat(94, "Fahrenheit")
+      let weight = Math.round.concat(300, "pounds");
+      let temperature = Math.round.concat(94, "Fahrenheit")
     }
   
 
@@ -35,8 +45,3 @@ function result() {
   }
 }
 
-
-newStory = storyText
-let xItem = randomValueFromArray(insertX);
-let yItem = randomValueFromArray(insertY);
-let zItem = randomValueFromArray(insertZ);
