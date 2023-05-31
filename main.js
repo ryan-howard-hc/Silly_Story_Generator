@@ -7,7 +7,7 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-let storyText = 'It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. ${customName.value} saw the whole thing, but was not surprised — ${xItem} weighs 300 pounds, and it was a hot day.';
+let storyText = `It was 94 fahrenheit outside, so ${xItem} went for a walk. When they got to ${yItem}, they stared in horror for a few moments, then ${zItem}. ${customName.value} saw the whole thing, but was not surprised — ${xItem} weighs 300 pounds, and it was a hot day.`;
 var insertX = ("Willy the Goblin", "Big Daddy", "Father Christmas");
 var insertY = ("the soup kitchen", "Disneyland", "the White House");
 var insertZ = ("spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away");
