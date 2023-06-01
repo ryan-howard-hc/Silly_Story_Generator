@@ -22,25 +22,29 @@ let newStory = storyText;
   const zItem = randomValueFromArray(insertZ);
 
 
-
-  if(customName.value !== '') {
-    let name = customName.value;
+  if (customName.value !== '') {
+    const name = customName.value;
     newStory = newStory.replace ('Bob', name);
   }
 
-  newStory = newStory.replace(':insertx:',xItem);
+  newStory = newStory.replaceAll(':insertx:',xItem);
   newStory = newStory.replace(':inserty:',yItem);
   newStory = newStory.replace(':insertz:',zItem);
 
-  if(document.getElementById("uk").checked) {
-    let weight = Math.round.concat(21.4286, "stone");
-    let temperature =  Math.round.concat(34.4444, "centigrade");
-  } else {
-      let weight = Math.round.concat(300, "pounds");
-      let temperature = Math.round.concat(94, "Fahrenheit");
-    }
+  console.log (document.getElementById("uk").checked)
+  console.log (`${Math.round(2.112)} stone`)
   
-
+//  if(document.getElementById("uk").checked) {
+//    const weight = Math.round.concat(`21.4286, "stone"`);
+//    const temperature =  Math.round.concat(`34.4444, "centigrade"`); }
+  
+   if (document.getElementById("uk").checked) {
+      const weight = `${Math.round(300*0.0714286)} stone`;
+      const temperature =  `${Math.round((94-32) * 5 / 9)} centigrade`;
+      newStory = newStory.replaceAll('94 fahrenheit', temperature);
+      newStory = newStory.replaceAll('300 pounds', weight);
+    }
+    
   {
     story.textContent = newStory ;
     story.style.visibility = 'visible';
